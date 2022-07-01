@@ -17,8 +17,6 @@ cc.Class({
     let layer = tiledMap.getLayer("wall");
     let layerSize = layer.getLayerSize();
 
-    debugger
-
     for (let i = 0; i < layerSize.width; i++) {
       for (let j = 0; j < layerSize.height; j++) {
         let tiled = layer.getTiledTileAt(i, j, true);
