@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "attact",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.5,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "2a0e3d14-fc76-4e8b-ab75-ca99e8c02f71"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "2785d641-ac19-4cc1-bbcf-11ae838efdeb"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "9e3fe74b-fee4-4b87-afa9-a02cc2a0e622"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "dd662adf-900e-4a21-88bb-7d6622329464"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "32ae51dc-0d5f-4ceb-a3c1-4452e37c187b"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
