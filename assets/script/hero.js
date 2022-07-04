@@ -12,7 +12,9 @@ cc.Class({
   onLoad() {
     this._speed = 200;
     this.sp = cc.v2(0, 0);
-
+    this.combo = 0;
+    this.anima = "idle";
+    this.aniToSet = "idle";
     this.heroState = State.stand;
     this.heroAni = this.node.getComponent(cc.Animation);
     this.heroAni.on("finished", this.onAnimaFinished, this);
@@ -34,25 +36,49 @@ cc.Class({
     this.heroAni.off("Finished", this.onAnimaFinished, this);
   },
 
-  setAni(anima) {
-    if (this.anima == anima) {
+  setAni() {
+    if (this.anima == this.aniToSet) {
       return;
     }
 
-    this.anima = anima;
-    this.heroAni.play(anima);
+    this.anima = this.aniToSet;
+    this.heroAni.play(this.aniToSet);
   },
   onAnimaFinished(event, data) {
-    if (data.name === "attack1") {
+    if (data.name.indexOf("attack") > -1) {
       this.heroState = State.stand;
-    //   this.setAni("idle");
+      this.combo = (this.combo + 1) % 3;
+      setTimeout(() => {
+        if (this.heroState != State.attack) {
+          this.combo = 0;
+        }
+      }, 500);
     }
   },
 
-  start() {},
+  attack() {
+    this.sp.x = 0;
+    if (Input[cc.macro.KEY.j]) {
+      this.aniToSet = `attack${this.combo + 1}`;
+    }
+  },
+  move(scaleX) {
+    // 判断行走方向
+    if (Input[cc.macro.KEY.a] || Input[cc.macro.KEY.left]) {
+      this.node.scaleX = -scaleX;
+      this.aniToSet = "run";
+      this.sp.x = -1;
+    } else if (Input[cc.macro.KEY.d] || Input[cc.macro.KEY.right]) {
+      this.node.scaleX = scaleX;
+      this.aniToSet = "run";
+      this.sp.x = 1;
+    } else {
+      this.sp.x = 0;
+      this.aniToSet = "idle";
+    }
+  },
 
   update(dt) {
-    let anima = this.anima;
     let scaleX = Math.abs(this.node.scaleX);
     this.lv = this.node.getComponent(cc.RigidBody).linearVelocity;
 
@@ -68,26 +94,9 @@ cc.Class({
 
     // 根据状态处理逻辑
     if (this.heroState == State.attack) {
-      if (Input[cc.macro.KEY.j]) {
-        anima = "attack1";
-      }
-    }
-    if (this.heroState != State.stand) {
-      this.sp.x = 0;
-    } else {
-      // 判断行走方向
-      if (Input[cc.macro.KEY.a] || Input[cc.macro.KEY.left]) {
-        this.node.scaleX = -scaleX;
-        anima = "run";
-        this.sp.x = -1;
-      } else if (Input[cc.macro.KEY.d] || Input[cc.macro.KEY.right]) {
-        this.node.scaleX = scaleX;
-        anima = "run";
-        this.sp.x = 1;
-      } else {
-        this.sp.x = 0;
-        anima = "idle";
-      }
+      this.attack();
+    } else if (this.heroState == State.stand) {
+      this.move(scaleX);
     }
 
     // 移动
@@ -96,7 +105,7 @@ cc.Class({
     } else {
       this.lv.x = 0;
     }
-    this.setAni(anima);
+    this.setAni(this.aniToSet);
     this.node.getComponent(cc.RigidBody).linearVelocity = this.lv;
   },
 });
