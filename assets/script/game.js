@@ -7,6 +7,10 @@ cc.Class({
 
   onLoad() {
     cc.director.getPhysicsManager().enabled = true;
+
+    cc.director.getCollisionManager().enabled = true;
+    cc.director.getCollisionManager().enabledDebugDraw = true;
+
     this.initMapNode(this.mapNode)
   },
 

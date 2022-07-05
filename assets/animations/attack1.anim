@@ -1,6 +1,6 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "attact",
+  "_name": "attack1",
   "_objFlags": 0,
   "_native": "",
   "_duration": 0.5,
@@ -39,6 +39,42 @@
             "frame": 0.4,
             "value": {
               "__uuid__": "32ae51dc-0d5f-4ceb-a3c1-4452e37c187b"
+            }
+          }
+        ]
+      },
+      "cc.BoxCollider": {
+        "size": [
+          {
+            "frame": 0,
+            "value": {
+              "__type__": "cc.Size",
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__type__": "cc.Size",
+              "width": 30,
+              "height": 35.8
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__type__": "cc.Size",
+              "width": 22.5,
+              "height": 41
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__type__": "cc.Size",
+              "width": 0,
+              "height": 0
             }
           }
         ]
