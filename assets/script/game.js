@@ -11,7 +11,7 @@ cc.Class({
     cc.director.getCollisionManager().enabled = true;
     cc.director.getCollisionManager().enabledDebugDraw = true;
 
-    this.initMapNode(this.mapNode)
+    this.initMapNode(this.mapNode);
   },
 
   start() {},
