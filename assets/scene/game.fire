@@ -78,10 +78,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 36
+        "__id__": 38
       },
       {
-        "__id__": 37
+        "__id__": 39
       }
     ],
     "_prefab": null,
@@ -254,10 +254,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 34
+        "__id__": 36
       },
       {
-        "__id__": 35
+        "__id__": 37
       }
     ],
     "_prefab": null,
@@ -1265,7 +1265,7 @@
     "_offset": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 1
+      "y": 15
     },
     "_size": {
       "__type__": "cc.Size",
@@ -1292,9 +1292,14 @@
       },
       {
         "__id__": 33
+      },
+      {
+        "__id__": 34
       }
     ],
-    "_prefab": null,
+    "_prefab": {
+      "__id__": 35
+    },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -1317,15 +1322,15 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        68.225,
-        -91.46,
+        -157.8875,
+        -205.73,
         0,
         0,
         0,
         0,
         1,
-        1,
-        1,
+        0.5,
+        0.5,
         0.5
       ]
     },
@@ -1338,9 +1343,9 @@
     "_skewX": 0,
     "_skewY": 0,
     "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "64LNFHCS1LZ5OAZiGhwDgO"
+    "_groupIndex": 3,
+    "groupIndex": 3,
+    "_id": "4fq9Ig/xpJBbwYtNd94wr5"
   },
   {
     "__type__": "cc.Sprite",
@@ -1372,7 +1377,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "45b/4lwVVDjJIDGkwsEzNG"
+    "_id": "bb4HpXFchAb5IgSVWVWtqT"
   },
   {
     "__type__": "cc.Animation",
@@ -1389,7 +1394,7 @@
       }
     ],
     "playOnLoad": false,
-    "_id": "b0YUnhRTRIPJKuAKIQoaLZ"
+    "_id": "a8WrlETPBNs6lI8t14YSqp"
   },
   {
     "__type__": "cc.BoxCollider",
@@ -1410,7 +1415,28 @@
       "width": 13.5,
       "height": 24
     },
-    "_id": "02j+2gw0ROQ6wJt3spxG7u"
+    "_id": "9b0KA87gFA6KRriGb+wDoH"
+  },
+  {
+    "__type__": "b3d5dcmRbNOgotsnudLK+mj",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 30
+    },
+    "_enabled": true,
+    "_id": "56NCyafwNPXqRFD2zZBZaV"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 30
+    },
+    "asset": {
+      "__uuid__": "1e89434f-db25-466e-941c-60e1bb8976ab"
+    },
+    "fileId": "",
+    "sync": false
   },
   {
     "__type__": "cc.Widget",
