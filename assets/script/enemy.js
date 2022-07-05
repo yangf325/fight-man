@@ -56,10 +56,10 @@ cc.Class({
     this.lv = this.rb.linearVelocity;
     this.node.scaleX = this.moveRight;
     if (this.moveRight === 1) {
-      this.setAni("run");
+      this.setAni("walk");
       this.sp.x = -1;
     } else if (this.moveRight === -1) {
-      this.setAni("run");
+      this.setAni("walk");
       this.sp.x = 1;
     } else {
       this.sp.x = 0;
@@ -67,7 +67,6 @@ cc.Class({
     }
 
     // 移动
-    console.log(this.sp.x);
     if (this.sp.x) {
       this.lv.x = this.sp.x * this._speed;
     } else {
@@ -79,10 +78,10 @@ cc.Class({
   update(dt) {
     // 处理状态
     this.tt += dt;
-    // if (this.tt >= 0.3 && this.enemyState == State.stand) {
-    //   this.enemyAction(dt);
-    //   this.tt = 0;
-    // }
+    if (this.tt >= 0.3 && this.enemyState == State.stand) {
+      this.enemyAction(dt);
+      this.tt = 0;
+    }
 
     if (this.enemyState == State.attack) {
       // 根据状态处理逻辑

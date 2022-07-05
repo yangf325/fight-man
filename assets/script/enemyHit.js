@@ -8,8 +8,8 @@ cc.Class({
   },
 
   onCollisionEnter(other) {
-    console.log("onCollisionEnter", other);
-    if (other.node.group == "hero") {
+    console.log(other);
+    if (other.node.group == "hero" && other.tag === 1) {
       this.enemy.hurt();
     }
   },
