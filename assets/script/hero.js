@@ -15,7 +15,7 @@ cc.Class({
     this.combo = 0;
     this.rb = this.node.getComponent(cc.RigidBody);
     this.heroState = State.stand;
-    this.heroAni = this.node.getChildByName('body').getComponent(cc.Animation);
+    this.heroAni = this.node.getChildByName("body").getComponent(cc.Animation);
     this.setAni("idle");
     this.heroAni.on("finished", this.onAnimaFinished, this);
 
