@@ -1267,14 +1267,14 @@
     "_offset": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0
+      "y": 20
     },
     "_size": {
       "__type__": "cc.Size",
       "width": 0,
       "height": 0
     },
-    "_id": "c1608/1WpEKpbptP5f0/1T"
+    "_id": "f8GLFOwMFHrbZ/DBZJh4VF"
   },
   {
     "__type__": "4bc9bVHWzZBbJQANMFNAcC5",
@@ -1448,7 +1448,7 @@
       "ctor": "Float64Array",
       "array": [
         463.5,
-        173.148,
+        135.865,
         0,
         0,
         0,
