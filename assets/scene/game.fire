@@ -1387,8 +1387,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        133,
-        -91,
+        69.5,
+        -49.5,
         0,
         0,
         0,

@@ -13,52 +13,83 @@ cc.Class({
     this.hp = 5;
     this.isHit = false;
     this.ani = this.node.getChildByName("body").getComponent(cc.Animation);
+    this.playerNode = cc.find("Canvas/bg/hero");
 
     this.rb = this.node.getComponent(cc.RigidBody);
     this._speed = 25;
     this.sp = cc.v2(0, 0);
     this.tt = 0;
     this.enemyState = State.stand;
-    this.moveRight = 1;
+    this.moveRight = 0;
     this.setAni("idle");
     this.ani.on("finished", (e, data) => {
-      this.hp--;
-      this.isHit = false;
-      if (this.hp == 0) {
-        this.node.destroy();
+      if (data.name == "hurt") {
+        this.hp--;
+        this.sp.x = 0;
+        this.isHit = false;
+        this.enemyState = State.stand;
+        if (this.hp == 0) {
+          this.node.destroy();
+        }
+      } else if (data.name == "attack") {
+        this.enemyState = State.stand;
+        this.setAni("idle");
       }
+
+      console.log("state", this.enemyState);
     });
   },
 
   hurt() {
+    if (this.isHit) return;
     this.isHit = true;
-    this.ani.play("hurt");
+    this.enemyState = State.hurt;
+    this.sp.x = 0;
+    this.setAni("hurt");
   },
   setAni(anima) {
     if (this.anima == anima) {
       return;
     }
-
+    console.log("anima", anima);
     this.anima = anima;
     this.ani.play(anima);
   },
 
-  enemyAction() {},
+  enemyAction() {
+    const dis = cc.Vec2.distance(this.playerNode.position, this.node.position);
+    const face = this.node.position.sub(this.playerNode.position) > 0 ? 1 : -1;
+    if (dis < 40) {
+      console.log("功击");
+      this.enemyState = State.attack;
+      this.attack();
+    } else if (dis < 150) {
+      this.enemyState = State.stand;
+      this.setAni("walk");
+      console.log("追击", this.anima);
+      this.moveRight = -face;
+    } else {
+      console.log("静止", this.anima);
+      this.enemyState = State.stand;
+      this.setAni("idle");
+      this.sp.x = 0;
+      this.moveRight = 0;
+    }
+  },
 
   attack() {
+    this.setAni("attack");
     this.sp.x = 0;
-    if (Input[cc.macro.KEY.j]) {
-      this.setAni(`attack${this.combo + 1}`);
-    }
   },
   move() {
     // 判断行走方向
     this.lv = this.rb.linearVelocity;
-    this.node.scaleX = this.moveRight;
     if (this.moveRight === 1) {
+      this.node.scaleX = -this.moveRight;
       this.setAni("walk");
       this.sp.x = -1;
     } else if (this.moveRight === -1) {
+      this.node.scaleX = -this.moveRight;
       this.setAni("walk");
       this.sp.x = 1;
     } else {
@@ -78,7 +109,7 @@ cc.Class({
   update(dt) {
     // 处理状态
     this.tt += dt;
-    if (this.tt >= 0.3 && this.enemyState == State.stand) {
+    if (this.tt >= 1.3 && this.enemyState == State.stand) {
       this.enemyAction(dt);
       this.tt = 0;
     }
