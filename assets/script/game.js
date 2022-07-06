@@ -8,8 +8,8 @@ cc.Class({
   onLoad() {
     cc.director.getPhysicsManager().enabled = true;
 
-    // cc.director.getCollisionManager().enabled = true;
-    // cc.director.getCollisionManager().enabledDebugDraw = true;
+    cc.director.getCollisionManager().enabled = true;
+    cc.director.getCollisionManager().enabledDebugDraw = true;
     // var Bits = cc.PhysicsManager.DrawBits;
     // cc.director.getPhysicsManager().debugDrawFlags =
     //   Bits.e_aabbBit |
@@ -18,7 +18,7 @@ cc.Class({
     //   Bits.e_jointBit |
     //   Bits.e_shapeBit;
 
-    this.initMapNode(this.mapNode);
+    // this.initMapNode(this.mapNode);
   },
 
   start() {},
